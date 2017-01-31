@@ -49,21 +49,9 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
 
         holder.tvTitle.setText(movie.getTitle());
         holder.tvOverview.setText(movie.getOverview());
-
         Picasso.with(getContext())
                 .load(movie.getPosterPath())
                 .into(holder.ivMovieImage);
-
-        Log.d("path", movie.getPosterPath());
-
-        /*holder.btnMoreInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getContext(), MovieDetailActivity.class);
-                i.putExtra("MOVIE", movie);
-                getContext().startActivity(i);
-            }
-        });*/
     }
 
     @Override
@@ -92,7 +80,6 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
         public void onClick(View v) {
 
             Movie movie = movies.get(getAdapterPosition());
-
             Intent i = new Intent(getContext(), MovieDetailActivity.class);
             i.putExtra("MOVIE", movie);
             getContext().startActivity(i);
